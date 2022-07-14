@@ -6,7 +6,7 @@ print(STATUS "Building ${PACKAGE_NAME}_v${PACKAGE_VERSION} [${CMAKE_BUILD_TYPE}]
 #
 # NOTE: Name the executable here
 #
-set(BINARY_NAME "${PACKAGE_NAME}.bin")
+set(BINARY_NAME "${PACKAGE_NAME}")
 
 #
 # NOTE: Declare the executable, manually add all source files

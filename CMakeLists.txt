@@ -20,10 +20,10 @@ include(cmake/utils.cmake)
 # Sub-project versions are defined in their respective `CMakeLists.txt` files, by calling
 # `get_version()`.
 project(
-  starter
+  NintendoughEmulator
   VERSION 0.1.0
-  DESCRIPTION "Starter Project with shared library and seperate binary application using the CPM package manager"
-  HOMEPAGE_URL "https://github.com/mattcoding4days/cmake-starter-lib"
+  DESCRIPTION "An Nintedo Entertainment System emulator written in modern C++"
+  HOMEPAGE_URL "https://github.com/mattcoding4days/Nintendough"
   LANGUAGES CXX C)
 
 #
@@ -46,16 +46,15 @@ set_project_warnings(project_warnings)
 #
 # NOTE: add additional project options
 #
-option(STARTER_ENABLE_PCH "Enable Precompiled Headers" ON)
-option(STARTER_BUILD_CORE "Build the core shared library" ON)
-option(STARTER_BUILD_APP "Build the application" ON)
+option(NINTENDOUGH_ENABLE_PCH "Enable Precompiled Headers" ON)
+option(NINTENDOUGH_BUILD_APP "Build the application" ON)
 
 #
 # NOTE: This sets a global PCH parameter, each project will build its own PCH, which is a good idea
 # if any #define's change consider breaking this out per project as necessary. Modify as needed for
 # your project
 #
-if(STARTER_ENABLE_PCH)
+if(NINTENDOUGH_ENABLE_PCH)
   target_precompile_headers(
     project_options
     INTERFACE
@@ -83,11 +82,7 @@ endif()
 #
 # NOTE: Add sub-projects to the project
 #
-if(STARTER_BUILD_CORE)
-  add_subdirectory("core")
-endif()
-
-if(STARTER_BUILD_APP)
+if(NINTENDOUGH_BUILD_APP)
   add_subdirectory("app")
 endif()
 

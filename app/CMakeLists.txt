@@ -1,4 +1,4 @@
-set(PACKAGE_NAME "starter_app")
+set(PACKAGE_NAME "nintendough")
 
 #
 # NOTE: `get_version()` defines the variable `${${PACKAGE_NAME}_VERSION}` which is used below to set
@@ -20,7 +20,7 @@ set(APP_TEST_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tests")
 #
 # NOTE: add additional project options
 #
-option(STARTER_BUILD_APP_TESTING "Enable Test builds" ON)
+option(NINTENDOUGH_BUILD_APP_TESTING "Enable Test builds" ON)
 
 #
 # NOTE: Prevent in source builds (can't build in src/ or in project root)
@@ -41,7 +41,7 @@ endif()
 #
 # NOTE: Using `CPMFindPackage()` to install package only if it is not already installed.
 #
-if(STARTER_BUILD_APP_TESTING)
+if(NINTENDOUGH_BUILD_APP_TESTING)
   cpmaddpackage(
     NAME
     googletest

@@ -1,11 +1,11 @@
 <br>
 <div align="center">
-  Nintendough
+  <h1>Nintendough</h1>
 </div>
 
 ## :information_source: About 
 
-> An Nintedo Entertainment System emulator written in modern C++
+> A Nintedo Entertainment System emulator written in doughy, delicious modern C++
 
 1. Built using the [Nesdev Wiki](https://www.nesdev.org/wiki/Nesdev_Wiki) as reference
 

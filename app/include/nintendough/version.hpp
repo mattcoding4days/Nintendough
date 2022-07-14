@@ -1,8 +1,8 @@
-#ifndef STARTER_APP_VERSION_HPP
-#define STARTER_APP_VERSION_HPP
+#ifndef NINTENDOUGH_VERSION_HPP
+#define NINTENDOUGH_VERSION_HPP
 
 /**
- * @file starter_app/version.hpp
+ * @file nintendough/version.hpp
  * @author Matt Williams (matt.k.williams@protonmail.com)
  * @brief Adds version support for project, used by Cmake
  * @date 2021-11-19
@@ -14,7 +14,7 @@
 #define VMINOR 1
 #define VPATCH 0
 
-namespace starter::app {
+namespace nintendough {
 /**
  * @brief return the version in string format
  *
@@ -22,9 +22,11 @@ namespace starter::app {
  * */
 [[maybe_unused]] inline static std::string get_version() {
   std::string version_string{std::to_string(VMAJOR)};
-  version_string += "." + std::to_string(VMINOR) + "." + std::to_string(VPATCH);
-  return version_string;
+  return version_string.append(".")
+      .append(std::to_string(VMINOR))
+      .append(".")
+      .append(std::to_string(VPATCH));
 }
-}  // namespace starter::app
+}  // namespace nintendough
 
 #endif
