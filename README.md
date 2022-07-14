@@ -12,7 +12,7 @@
 
 ## :building_construction: Development
 
-1. Install [CC65 Assembler for Intel 6502 CPU's](https://www.nesdev.org/wiki/Installing_CC65#Building_CC65_on_Ubuntu_(Linux) on your Linux box
+1. Install [CC65 Assembler for Intel 6502 CPU's](https://www.nesdev.org/wiki/Installing_CC65#Building_CC65_on_Ubuntu_(Linux)) on your Linux box
   - On Ubuntu 22.04 (or derivatives) you can `sudo apt install cc65`
 
 
@@ -26,7 +26,7 @@
 
 1. Please see [this documentation for devkit usage](https://github.com/mattcoding4days/cmake-starter#building_construction-development)
 
-[##](##) :computer: Docker
+## :computer: Docker
 
 > This container builds the development environment for Ubuntu 20.04,
 > installs the cmake project, and then runs the tests
