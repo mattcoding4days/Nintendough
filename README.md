@@ -36,17 +36,17 @@
 ```bash
 # Build the container (can be used to rebuild image after code changes)
 # [e.g] docker image build -t <image-name>:<tag> .
-docker image build -t starter:v0.1 .
+docker image build -t nintendough:v0.1 .
 
 # Rebuild with no cache
-docker image build --no-cache -t starter:v0.1 .
+docker image build --no-cache -t nintendough:v0.1 .
 
 # Run the container interactively
 # [e.g] docker container run -it <image-name>:<tag>
-docker container run -it starter:v0.1
+docker container run -it nintendough:v0.1
 
 # Run non interactively
-docker container run starter:v0.1
+docker container run nintendough:v0.1
 ```
 
 ## :package: 3rd party packages

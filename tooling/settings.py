@@ -16,7 +16,6 @@ PROJECT_BUILD_DIR = PROJECT_ROOT / "build"
 # All c++ projects must be added to this list
 PROJECTS: List[Path] = [
     PROJECT_ROOT / "app",
-    PROJECT_ROOT / "core"
 ]
 
 # Package configurations, used for building a debian, slackware, or rpm package,
@@ -81,5 +80,4 @@ FORMAT_IGNORE: List[Path] = [
 # Files that should be ignored for clang-tidy
 ANALYZE_IGNORE: List[Path] = [
     PROJECT_ROOT / 'app' / 'tests' / 'hello_test.cpp',
-    PROJECT_ROOT / 'core' / 'tests' / 'add_test.cpp'
 ]

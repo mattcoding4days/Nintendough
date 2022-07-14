@@ -20,21 +20,20 @@ RUN apt-get -y install clang clang-format clang-tidy cmake-format
 RUN pip install  distro
 
 # Copy the files to the image
-COPY cmake/ /starter/cmake
-COPY core/ /starter/core
-COPY app/ /starter/app
-COPY CMakeLists.txt /starter/CMakeLists.txt
+COPY cmake/ /nintendough/cmake
+COPY app/ /nintendough/app
+COPY CMakeLists.txt /nintendough/CMakeLists.txt
 
 # copy clang config files
-COPY .clang-format /starter
-COPY .clang-tidy /starter
-COPY .cmake-format.yaml /starter
+COPY .clang-format /nintendough
+COPY .clang-tidy /nintendough
+COPY .cmake-format.yaml /nintendough
 
 # Copy the python devkit tooling
-COPY devkit /starter/devkit
-COPY tooling /starter/tooling
+COPY devkit /nintendough/devkit
+COPY tooling /nintendough/tooling
 
-WORKDIR /starter
+WORKDIR /nintendough
 
 # format the project
 RUN ./devkit clang --format
@@ -47,7 +46,5 @@ RUN ./devkit clang --lint
 
 # Run tests. If you did not build a project,
 # make sure to comment out the tests for that project
-RUN cd build/core && ctest -VV
-RUN ./build/core/examples/starter_core_example_one.bin
 RUN cd build/app && ctest -VV
-RUN ./build/app/src/starter_app.bin
+RUN ./build/app/src/nintendough
