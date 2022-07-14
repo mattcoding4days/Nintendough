@@ -28,7 +28,7 @@
 
 ## :computer: Docker
 
-> This container builds the development environment for Ubuntu 20.04,
+> This container builds the development environment for Ubuntu 22.04,
 > installs the cmake project, and then runs the tests
 
 ### :keyboard: Commands
