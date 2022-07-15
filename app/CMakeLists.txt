@@ -44,7 +44,7 @@ endif()
 # NOTE: Using `CPMFindPackage()` to install package only if it is not already installed.
 #
 if(NINTENDOUGH_BUILD_APP_TESTING)
-  cpmaddpackage(
+  cpmfindpackage(
     NAME
     googletest
     GITHUB_REPOSITORY
@@ -72,6 +72,44 @@ if(NINTENDOUGH_BUILD_APP_TESTING)
   enable_testing()
   print(STATUS "${PACKAGE_NAME} -- Tests Enabled")
   add_subdirectory("tests")
+endif()
+
+#
+# NOTE: Add the result error handling library
+#
+cpmfindpackage(
+  NAME
+  result
+  GITHUB_REPOSITORY
+  bitwizeshift/result
+  VERSION
+  1.0.0)
+if(result_ADDED)
+  print(STATUS "result configured correctly")
+else()
+  print(WARNING "result was not configured properly")
+endif()
+
+#
+# NOTE: Add the logging library
+#
+cpmfindpackage(
+  NAME
+  spdlog
+  GITHUB_REPOSITORY
+  gabime/spdlog
+  VERSION
+  1.10.0
+  OPTIONS
+  "SPDLOG_BUILD_SHARED OFF"
+  "SPDLOG_BUILD_EXAMPLE OFF"
+  "SPDLOG_BUILD_TESTS OFF"
+  "SPDLOG_ENABLE_PCH ON"
+  "SPDLOG_INSTALL ON")
+if(spdlog_ADDED)
+  print(STATUS "spdlog configured correctly")
+else()
+  print(WARNING "spdlog was not configured properly")
 endif()
 
 #
