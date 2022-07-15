@@ -16,11 +16,13 @@ set(PACKAGE_VERSION ${${PACKAGE_NAME}_VERSION})
 set(APP_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(APP_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(APP_TEST_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tests")
+set(APP_EXAMPLES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/examples")
 
 #
 # NOTE: add additional project options
 #
-option(NINTENDOUGH_BUILD_APP_TESTING "Enable Test builds" ON)
+option(NINTENDOUGH_BUILD_APP_TESTING "Enable test builds" ON)
+option(NINTENDOUGH_BUILD_APP_EXAMPLES "Enable example builds" ON)
 
 #
 # NOTE: Prevent in source builds (can't build in src/ or in project root)
@@ -76,3 +78,11 @@ endif()
 # NOTE: Add the src/ subdirectory to finish building the executable
 #
 add_subdirectory("src")
+
+#
+# NOTE: Build project examples
+#
+if(NINTENDOUGH_BUILD_APP_EXAMPLES)
+  print(STATUS "${PACKAGE_NAME} -- Examples Enabled")
+  add_subdirectory("examples")
+endif()
