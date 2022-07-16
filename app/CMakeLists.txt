@@ -75,22 +75,6 @@ if(NINTENDOUGH_BUILD_APP_TESTING)
 endif()
 
 #
-# NOTE: Add the result error handling library
-#
-cpmfindpackage(
-  NAME
-  result
-  GITHUB_REPOSITORY
-  bitwizeshift/result
-  VERSION
-  1.0.0)
-if(result_ADDED)
-  print(STATUS "result configured correctly")
-else()
-  print(WARNING "result was not configured properly")
-endif()
-
-#
 # NOTE: Add the logging library
 #
 cpmfindpackage(
@@ -111,6 +95,10 @@ if(spdlog_ADDED)
 else()
   print(WARNING "spdlog was not configured properly")
 endif()
+
+#
+# NOTE: Add json library
+#
 
 #
 # NOTE: Add the src/ subdirectory to finish building the executable

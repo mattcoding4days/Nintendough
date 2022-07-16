@@ -2,10 +2,9 @@
 #define NINTENDOUGH_COMMON_HPP
 
 /**
- * @file nintendough/common.hpp
- * @author Matt Williams (matt.k.williams@protonmail.com)
- * @brief Barrel file for common standard library includes
- * @date 2021-11-19
+ * \file nintendough/common.hpp
+ * \author Matt Williams (matt.k.williams@protonmail.com)
+ * \brief Barrel file for common standard library includes
  */
 
 #include <algorithm>

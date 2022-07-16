@@ -1,8 +1,18 @@
+#include <cstdlib>
 #include <iostream>
+#include <nintendough/log/module.hpp>
 #include <nintendough/version.hpp>
 
-int main() {
-  std::cout << "Nintendough version: " << nintendough::get_version() << '\n';
+using namespace nintendough;
 
-  return 0;
+auto main() -> int {
+  try {
+    log::Logger::instance().init();
+    log::info("Nintedough version: {}", get_version());
+  } catch (log::LoggerInitFailure const &e) {
+    std::cerr << "Error: " << e.what() << "\nFile: " << e.file()
+              << "\nFunc: " << e.func() << ":" << e.line() << '\n';
+    return EXIT_FAILURE;
+  }
+  return EXIT_SUCCESS;
 }

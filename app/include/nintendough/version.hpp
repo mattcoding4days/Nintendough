@@ -2,10 +2,9 @@
 #define NINTENDOUGH_VERSION_HPP
 
 /**
- * @file nintendough/version.hpp
- * @author Matt Williams (matt.k.williams@protonmail.com)
- * @brief Adds version support for project, used by Cmake
- * @date 2021-11-19
+ * \file nintendough/version.hpp
+ * \author Matt Williams (matt.k.williams@protonmail.com)
+ * \brief Adds version support for project, used by Cmake
  */
 
 #include <string>
@@ -16,9 +15,9 @@
 
 namespace nintendough {
 /**
- * @brief return the version in string format
+ * \brief version (major.minor.patch) in string format
  *
- * @returns std::string
+ * \returns std::string
  * */
 [[maybe_unused]] inline static std::string get_version() {
   std::string version_string{std::to_string(VMAJOR)};

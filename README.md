@@ -54,12 +54,10 @@ docker container run nintendough:v0.1
   - Googles Unit test framework which also includes a mock library
   - Why? It compiles way faster than catch2, has a built in mocking framework, and blends nicely
     with the google benchmark library
-2. [result](https://github.com/bitwizeshift/result)
-  - For Rust like error handling, because exceptions are subpar.
-3. [nlohmann json](https://github.com/nlohmann/json)
+2. [nlohmann json](https://github.com/nlohmann/json)
   - Json serializer/deserializer
-4. [spdlog](https://github.com/gabime/spdlog)
+3. [spdlog](https://github.com/gabime/spdlog)
   - Fast logging library
-5. [SFML](https://www.sfml-dev.org/index.php)
+4. [SFML](https://www.sfml-dev.org/index.php)
   - A simple and fast multimedia library
   - `sudo apt install libsfml-dev`
