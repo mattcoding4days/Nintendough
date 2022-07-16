@@ -15,6 +15,17 @@
 namespace nintendough::log {
 /**
  * \brief C++17 version of a Meyers singleton
+ *
+ * \code{.cpp}
+ * #include <nintendough/log/module.hpp>
+ *
+ * try {
+ *   log::Logger::instance().init();
+ *   log::info("Nintedough version: {}", get_version());
+ * } catch (log::LoggerInitFailure const &e) {
+ *   std::cerr << e.formatted_info() << '\n';
+ * }
+ * \endcode
  * */
 class Logger {
  public:
