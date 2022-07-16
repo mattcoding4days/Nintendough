@@ -10,8 +10,7 @@ auto main() -> int {
     log::Logger::instance().init();
     log::info("Nintedough version: {}", get_version());
   } catch (log::LoggerInitFailure const &e) {
-    std::cerr << "Error: " << e.what() << "\nFile: " << e.file()
-              << "\nFunc: " << e.func() << ":" << e.line() << '\n';
+    std::cerr << e.formatted_info() << '\n';
     return EXIT_FAILURE;
   }
   return EXIT_SUCCESS;

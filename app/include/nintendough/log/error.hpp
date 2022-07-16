@@ -1,7 +1,7 @@
 #ifndef NINTENDOUGH_LOG_ERROR_HPP
 #define NINTENDOUGH_LOG_ERROR_HPP
 
-#include <nintendough/error.hpp>
+#include <nintendough/error/module.hpp>
 
 /**
  * \file nintendough/log/error.hpp
