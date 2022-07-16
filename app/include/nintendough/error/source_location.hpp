@@ -13,8 +13,7 @@ namespace nintendough::error {
  */
 struct SourceLocation {
   SourceLocation(std::string_view const &file, std::uint32_t line,
-                 std::string_view const &func) noexcept
-      : mFile(file), mLine(line), mFunc(func) {}
+                 std::string_view const &func) noexcept;
 
   const std::string mFile{};
   const std::uint32_t mLine{};

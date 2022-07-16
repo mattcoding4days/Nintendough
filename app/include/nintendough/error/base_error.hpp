@@ -16,17 +16,7 @@ namespace nintendough::error {
 class INintendoughAbstractError : public std::exception {
  public:
   INintendoughAbstractError(std::string_view const &msg,
-                            SourceLocation &&slc) noexcept
-      : mMsg(msg), mFile(slc.mFile), mFunc(slc.mFunc), mLine(slc.mLine) {
-    mFormattedInfo.append("Error: ")
-        .append(msg)
-        .append("\nFunction: ")
-        .append(mFunc)
-        .append("\nFile: ")
-        .append(mFile)
-        .append(":")
-        .append(std::to_string(mLine));
-  }
+                            SourceLocation &&slc) noexcept;
 
   ~INintendoughAbstractError() override = default;
   INintendoughAbstractError(INintendoughAbstractError const &) = default;
@@ -36,26 +26,12 @@ class INintendoughAbstractError : public std::exception {
   INintendoughAbstractError &operator=(INintendoughAbstractError &&) noexcept =
       default;
 
-  [[nodiscard]] inline const char *what() const noexcept override {
-    return mMsg.data();
-  };
-
-  [[nodiscard]] virtual inline auto file() const noexcept -> std::string_view {
-    return mFile;
-  };
-
-  [[nodiscard]] virtual inline auto func() const noexcept -> std::string_view {
-    return mFunc;
-  };
-
-  [[nodiscard]] virtual inline auto line() const noexcept -> std::uint32_t {
-    return mLine;
-  };
-
-  [[nodiscard]] virtual inline auto formatted_info() const noexcept
-      -> std::string_view {
-    return mFormattedInfo;
-  };
+  [[nodiscard]] const char *what() const noexcept override;
+  [[nodiscard]] virtual auto file() const noexcept -> std::string_view;
+  [[nodiscard]] virtual auto func() const noexcept -> std::string_view;
+  [[nodiscard]] virtual auto line() const noexcept -> std::uint32_t;
+  [[nodiscard]] virtual auto formatted_info() const noexcept
+      -> std::string_view;
 
  protected:
   std::string mMsg{};
@@ -70,8 +46,7 @@ class INintendoughAbstractError : public std::exception {
  */
 class NintendoughError : public INintendoughAbstractError {
  public:
-  NintendoughError(std::string_view const &msg, SourceLocation &&slc) noexcept
-      : INintendoughAbstractError(msg, std::move(slc)) {}
+  NintendoughError(std::string_view const &msg, SourceLocation &&slc) noexcept;
 };
 
 };  // namespace nintendough::error
