@@ -37,7 +37,7 @@ struct SourceLocation {
 class INintendoughAbstractError : public std::exception {
  public:
   INintendoughAbstractError(std::string_view const &msg,
-                            SourceLocation const &slc) noexcept
+                            SourceLocation &&slc) noexcept
       : mMsg(msg), mFile(slc.mFile), mFunc(slc.mFunc), mLine(slc.mLine) {}
 
   ~INintendoughAbstractError() override = default;
@@ -76,9 +76,8 @@ class INintendoughAbstractError : public std::exception {
  */
 class NintendoughError : public INintendoughAbstractError {
  public:
-  NintendoughError(std::string_view const &msg,
-                   SourceLocation const &slc) noexcept
-      : INintendoughAbstractError(msg, slc) {}
+  NintendoughError(std::string_view const &msg, SourceLocation &&slc) noexcept
+      : INintendoughAbstractError(msg, std::move(slc)) {}
 };
 
 };  // namespace nintendough::error

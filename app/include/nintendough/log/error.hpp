@@ -15,16 +15,16 @@ namespace nintendough::log {
 class LoggerInitFailure : public error::INintendoughAbstractError {
  public:
   LoggerInitFailure(std::string_view const &msg,
-                    error::SourceLocation const &slc) noexcept
-      : error::INintendoughAbstractError(msg, slc) {}
+                    error::SourceLocation &&slc) noexcept
+      : error::INintendoughAbstractError(msg, std::move(slc)) {}
 
   /**
    * \brief convenience method to verify the loggers have been initialized
    * */
-  static auto LoggerInitialized(bool initialized,
-                                error::SourceLocation const &slc) -> void {
+  static auto LoggerInitialized(bool initialized, error::SourceLocation &&slc)
+      -> void {
     if (!initialized) {
-      throw LoggerInitFailure("Loggers were not initialized", slc);
+      throw LoggerInitFailure("Loggers were not initialized", std::move(slc));
     }
   }
 };
