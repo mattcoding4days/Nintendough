@@ -1,7 +1,8 @@
 #include <spdlog/sinks/rotating_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-#include <nintendough/log/module.hpp>
+#include <nintendough/log/defaults.hpp>
+#include <nintendough/log/logger.hpp>
 
 namespace nintendough::log {
 

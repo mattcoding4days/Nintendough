@@ -14,7 +14,9 @@ set(BINARY_NAME "${PACKAGE_NAME}")
 add_executable(
   ${BINARY_NAME}
   # Add source files
-  "${APP_SOURCE_DIR}/main.cpp" "${APP_SOURCE_DIR}/log/logger.cpp")
+  "${APP_SOURCE_DIR}/main.cpp"
+  "${APP_SOURCE_DIR}/log/logger.cpp"
+  "${APP_SOURCE_DIR}/log/error.cpp")
 
 target_include_directories(${BINARY_NAME} PUBLIC ${APP_INCLUDE_DIR})
 target_link_libraries(
