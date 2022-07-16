@@ -22,7 +22,7 @@ auto Logger::get_file_logger() -> std::shared_ptr<spdlog::logger> const& {
 }
 
 auto Logger::init() -> void {
-  LoggerInitFailure::AssertLoggerInitialized(!mInitialized,
+  LoggerInitFailure::AssertLoggerInitialized(mInitialized,
                                              error::RUNTIME_INFO);
   try {
     spdlog::set_pattern("%^[%c]::[%n]::[%l]  %v%$");
