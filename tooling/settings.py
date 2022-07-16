@@ -73,11 +73,10 @@ CMAKE_PROGRAMS: Dict[str, Dict[str, str]] = {
 
 # Files that should be ignored for formatting (clang-format, cmake-format)
 FORMAT_IGNORE: List[Path] = [
-    PROJECT_ROOT / 'app' / 'src' / 'example_file.cpp',
-    PROJECT_ROOT / 'app' / 'src' / 'some_other_file.cpp'
+    PROJECT_ROOT / 'app' / 'include' / 'nlohmann' / 'json.hpp',
 ]
 
 # Files that should be ignored for clang-tidy
 ANALYZE_IGNORE: List[Path] = [
-    PROJECT_ROOT / 'app' / 'tests' / 'hello_test.cpp',
+    PROJECT_ROOT / 'app' / 'include' / 'nlohmann' / 'json.hpp',
 ]

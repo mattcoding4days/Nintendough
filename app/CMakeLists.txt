@@ -97,10 +97,6 @@ else()
 endif()
 
 #
-# NOTE: Add json library
-#
-
-#
 # NOTE: Add the src/ subdirectory to finish building the executable
 #
 add_subdirectory("src")
