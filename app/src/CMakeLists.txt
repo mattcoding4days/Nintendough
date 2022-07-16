@@ -18,7 +18,9 @@ add_executable(
   "${APP_SOURCE_DIR}/log/logger.cpp"
   "${APP_SOURCE_DIR}/log/error.cpp"
   "${APP_SOURCE_DIR}/error/base_error.cpp"
-  "${APP_SOURCE_DIR}/error/source_location.cpp")
+  "${APP_SOURCE_DIR}/error/source_location.cpp"
+  "${APP_SOURCE_DIR}/utils/error.cpp"
+  "${APP_SOURCE_DIR}/utils/system_defaults.cpp")
 
 target_include_directories(${BINARY_NAME} PUBLIC ${APP_INCLUDE_DIR})
 target_link_libraries(
