@@ -4,7 +4,7 @@
 #include <nintendough/error.hpp>
 
 /**
- * \file nintendough/logging/error.hpp
+ * \file nintendough/log/error.hpp
  * \author Matt Williams (matt.k.williams@protonmail.com)
  * \brief result errors for logging module
  */
