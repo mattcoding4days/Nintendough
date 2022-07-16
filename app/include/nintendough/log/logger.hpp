@@ -44,14 +44,20 @@ class Logger {
 
   /**
    * \brief  Getter for the console logger
+   *
    * \returns const reference to std::shared_ptr
+   *
+   * \throw LoggerInitFailure if init() method was never called
    * */
   [[nodiscard]] auto get_console_logger()
       -> std::shared_ptr<spdlog::logger> const &;
 
   /**
    * \brief Getter for the file logger
+   *
    * \returns const reference std::shared_ptr
+   *
+   * \throw LoggerInitFailure if init() method was never called
    * */
   [[nodiscard]] auto get_file_logger()
       -> std::shared_ptr<spdlog::logger> const &;

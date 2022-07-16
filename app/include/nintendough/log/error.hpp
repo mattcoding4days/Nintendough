@@ -21,7 +21,7 @@ class LoggerInitFailure : public error::INintendoughAbstractError {
   /**
    * \brief convenience method to verify the loggers have been initialized
    * */
-  static auto LoggerInitialized(bool initialized, error::SourceLocation &&slc)
+  static auto AssertLoggerInitialized(bool initialized, error::SourceLocation &&slc)
       -> void {
     if (!initialized) {
       throw LoggerInitFailure("Loggers were not initialized", std::move(slc));

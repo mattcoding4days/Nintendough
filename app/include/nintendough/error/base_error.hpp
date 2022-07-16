@@ -24,7 +24,7 @@ class INintendoughAbstractError : public std::exception {
         .append(mFunc)
         .append("\nFile: ")
         .append(mFile)
-        .append(": ")
+        .append(":")
         .append(std::to_string(mLine));
   }
 
