@@ -10,5 +10,4 @@
 #include <nintendough/error/base_error.hpp>
 #include <nintendough/error/source_location.hpp>
 
-
 #endif
