@@ -19,7 +19,7 @@ namespace nintendough {
  *
  * \returns std::string
  * */
-[[maybe_unused]] inline static std::string get_version() {
+[[maybe_unused]] inline static auto get_version() -> std::string {
   std::string version_string{std::to_string(VMAJOR)};
   return version_string.append(".")
       .append(std::to_string(VMINOR))
