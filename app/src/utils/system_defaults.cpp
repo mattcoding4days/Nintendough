@@ -2,7 +2,7 @@
 
 namespace nintendough::utils {
 auto SystemDefault::config_dir() noexcept -> std::filesystem::path {
-  if (!SystemDefault::TestDataDir.empty()) {
+  if (SystemDefault::TestDataDir != nullptr) {
     return {SystemDefault::TestDataDir};
   } else if (const auto *xdg = std::getenv("XDG_CONFIG_HOME")) {
     return std::filesystem::path(xdg).append(SystemDefault::ProgName);
@@ -21,7 +21,7 @@ auto SystemDefault::logging_dir() noexcept -> std::filesystem::path {
   return SystemDefault::config_dir().append("log");
 }
 
-auto SystemDefault::get_config_file_for(ConfigFile type) noexcept
+auto SystemDefault::get_config_file_path_for(ConfigFile type) noexcept
     -> std::filesystem::path {
   std::string cfile{};
   switch (type) {

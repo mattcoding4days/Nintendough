@@ -44,15 +44,19 @@ endif()
 # NOTE: Using `CPMFindPackage()` to install package only if it is not already installed.
 #
 if(NINTENDOUGH_BUILD_APP_TESTING)
+  #
+  # NOTE: Add compile defenitions
+  #
+  add_compile_definitions(NINTENDOUGH_TEST_DATA_DIR="${CMAKE_SOURCE_DIR}/config")
   cpmfindpackage(
     NAME
     googletest
     GITHUB_REPOSITORY
     google/googletest
     GIT_TAG
-    release-1.11.0
+    release-1.12.1
     VERSION
-    1.11.0
+    1.12.1
     OPTIONS
     "BUILD_GMOCK ON"
     "INSTALL_GTEST OFF"

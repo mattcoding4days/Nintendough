@@ -17,11 +17,6 @@ enum class ConfigFile { System, Controller };
  * */
 class SystemDefault {
  public:
-  static constexpr auto ProgName{"nintendough"};
-  static constexpr auto SysConfigFile{"sys-config.json"};
-  static constexpr auto ControllerConfigFile{"controller-config.json"};
-  static const std::string TestDataDir;
-
   /**
    * \brief Returns the absolute path for the config directory
    *
@@ -57,7 +52,7 @@ class SystemDefault {
    *
    * \returns std::filesystem::path
    * */
-  [[nodiscard]] static auto get_config_file_for(ConfigFile type) noexcept
+  [[nodiscard]] static auto get_config_file_path_for(ConfigFile type) noexcept
       -> std::filesystem::path;
 
  private:
@@ -69,13 +64,17 @@ class SystemDefault {
    *  \return std::filesystem::path
    * */
   [[nodiscard]] static auto home_() -> std::filesystem::path;
+
+  static constexpr auto ProgName{"nintendough"};
+  static constexpr auto SysConfigFile{"sys-config.json"};
+  static constexpr auto ControllerConfigFile{"controller-config.json"};
+  static const char* const TestDataDir;
 };
 
 #ifdef NINTENDOUGH_TEST_DATA_DIR
-inline const std::string SystemDefault::TestDataDir{
-    NINNINTENDOUGH_TEST_DATA_DIR};
+inline const char* const SystemDefault::TestDataDir{NINTENDOUGH_TEST_DATA_DIR};
 #else
-inline const std::string SystemDefault::TestDataDir{};
+inline const char* const SystemDefault::TestDataDir{nullptr};
 #endif
 
 };  // namespace nintendough::utils

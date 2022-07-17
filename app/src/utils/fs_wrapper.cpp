@@ -2,8 +2,7 @@
 #include <nintendough/utils/fs_wrapper.hpp>
 
 namespace nintendough::utils {
-auto FileSystem::FileSystem::create_directory(std::filesystem::path const& path)
-    -> void {
+auto FileSystem::create_directory(std::filesystem::path const& path) -> void {
   if (!std::filesystem::exists(path)) {
     std::error_code ecode;
     std::filesystem::create_directories(path, ecode);

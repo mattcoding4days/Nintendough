@@ -23,8 +23,8 @@ PROJECTS: List[Path] = [
 PACKAGE_CONFIG: Dict[str, str] = {
     "BACKEND": "checkinstall",
     "LICENSE": "GPL-3.0",
-    "MAINTAINER": "mattcoding4days",
-    "REQUIRES": "",
+    "MAINTAINER": "matt.k.williams@protonmail.com",
+    "REQUIRES": "libsfml-dev",
     "RELEASE": f"{distro.codename()}-{distro.version()}"
 }
 
@@ -78,5 +78,7 @@ FORMAT_IGNORE: List[Path] = [
 
 # Files that should be ignored for clang-tidy
 ANALYZE_IGNORE: List[Path] = [
+    PROJECT_ROOT / 'app' / 'tests' / '',
+    PROJECT_ROOT / 'app' / 'examples' / 'scratch.cpp',
     PROJECT_ROOT / 'app' / 'include' / 'nlohmann' / 'json.hpp',
 ]
