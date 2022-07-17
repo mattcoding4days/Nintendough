@@ -63,7 +63,7 @@ class SystemDefault {
    *
    *  \return std::filesystem::path
    * */
-  [[nodiscard]] static auto home_() -> std::filesystem::path;
+  [[nodiscard]] static auto home_() noexcept -> std::filesystem::path;
 
   static constexpr auto ProgName{"nintendough"};
   static constexpr auto SysConfigFile{"sys-config.json"};

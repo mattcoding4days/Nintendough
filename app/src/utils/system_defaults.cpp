@@ -35,7 +35,7 @@ auto SystemDefault::get_config_file_path_for(ConfigFile type) noexcept
   return SystemDefault::config_dir().append(cfile);
 }
 
-auto SystemDefault::home_() -> std::filesystem::path {
+auto SystemDefault::home_() noexcept -> std::filesystem::path {
   if (const auto *home = std::getenv("HOME")) {
     return {home};
   }
