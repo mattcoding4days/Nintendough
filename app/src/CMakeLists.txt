@@ -28,6 +28,6 @@ target_link_libraries(
   ${BINARY_NAME}
   PRIVATE project_options
           project_warnings
-          ${STARTER_CORE_LIB}
+          stdc++fs
           spdlog::spdlog
-          stdc++fs)
+          nlohmann_json)

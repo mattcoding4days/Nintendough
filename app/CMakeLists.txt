@@ -45,7 +45,7 @@ endif()
 #
 if(NINTENDOUGH_BUILD_APP_TESTING)
   #
-  # NOTE: Add compile defenitions
+  # NOTE: Add compile defenition for test config files
   #
   add_compile_definitions(NINTENDOUGH_TEST_DATA_DIR="${CMAKE_SOURCE_DIR}/config")
   cpmfindpackage(
@@ -99,6 +99,13 @@ if(spdlog_ADDED)
 else()
   print(WARNING "spdlog was not configured properly")
 endif()
+
+#
+# NOTE: Bundle json library into our project, as it is header only
+#
+print(STATUS "\nAdding the nlohmann json library")
+add_library(nlohmann_json INTERFACE)
+target_include_directories(nlohmann_json INTERFACE ${APP_INCLUDE_DIR}/nlohmann)
 
 #
 # NOTE: Add the src/ subdirectory to finish building the executable
