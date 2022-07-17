@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-#include <nintendough/error/module.hpp>
 #include <nintendough/log/module.hpp>
 #include <nintendough/utils/module.hpp>
 #include <nintendough/version.hpp>

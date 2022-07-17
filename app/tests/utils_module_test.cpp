@@ -4,7 +4,7 @@
 
 using namespace nintendough::utils;
 
-TEST(UtilsTest, TestSystemDefaults) {
+TEST(UtilsModuleTest, TestSystemDefaults) {
   ASSERT_FALSE(SystemDefault::config_dir().empty());
   ASSERT_FALSE(SystemDefault::cache_dir().empty());
   ASSERT_FALSE(SystemDefault::logging_dir().empty());
@@ -18,7 +18,7 @@ TEST(UtilsTest, TestSystemDefaults) {
       SystemDefault::get_config_file_path_for(ConfigFile::Controller)));
 }
 
-TEST(UtilsTest, TestFileSystemWrapper) {
+TEST(UtilsModuleTest, TestFileSystemWrapper) {
   std::string serialized_sys_config = FileSystem::load_config(
       SystemDefault::get_config_file_path_for(ConfigFile::System));
   ASSERT_FALSE(serialized_sys_config.empty());

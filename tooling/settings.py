@@ -78,7 +78,9 @@ FORMAT_IGNORE: List[Path] = [
 
 # Files that should be ignored for clang-tidy
 ANALYZE_IGNORE: List[Path] = [
-    PROJECT_ROOT / 'app' / 'tests' / '',
+    PROJECT_ROOT / 'app' / 'tests' / 'utils_module_test.cpp',
+    PROJECT_ROOT / 'app' / 'tests' / 'error_module_test.cpp',
+    PROJECT_ROOT / 'app' / 'tests' / 'log_module_test.cpp',
     PROJECT_ROOT / 'app' / 'examples' / 'scratch.cpp',
     PROJECT_ROOT / 'app' / 'include' / 'nlohmann' / 'json.hpp',
 ]

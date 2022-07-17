@@ -64,7 +64,7 @@ class SystemDefault {
    *  \return std::filesystem::path
    * */
   [[nodiscard]] static auto home_() noexcept -> std::filesystem::path;
-    
+
   /**
    * \brief Hard coded constants to build directory paths and
    *  read/write files
