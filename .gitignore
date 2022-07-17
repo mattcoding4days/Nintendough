@@ -20,4 +20,4 @@ build/
 .cache/
 .vendir/
 .vim/
-Doxygen/html
+docs/doxygen/html
