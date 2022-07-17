@@ -43,15 +43,22 @@ class Logger {
 
   /**
    * \brief get an instance to the logger
+   *
    * \returns reference to Logger
    * */
   static auto instance() -> Logger &;
 
   /**
    * \brief Initialize spdlog
+   *
+   * \param std::filesystem::path logging directory path
+   *
+   * \details no filename should be appended, just the path,
+   *  the logging file name is appended within this init method
+   *
    * \throws LoggerInitFailure
    * */
-  auto init() -> void;
+  auto init(std::filesystem::path log_path) -> void;
 
   /**
    * \brief  Getter for the console logger

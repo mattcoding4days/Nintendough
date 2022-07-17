@@ -14,10 +14,11 @@ namespace nintendough::log {
  *  file is implemented and read from disk
  * */
 struct Defaults {
-  static constexpr auto console_logger_name = "Nintendough Console";
-  static constexpr auto file_logger_name = "Nintendough";
-  static constexpr auto max_file_size = 1048576 * 5;  // 5mb size
-  static constexpr auto max_files = 3;
+  static constexpr auto console_logger_name{"Nintendough Console"};
+  static constexpr auto file_logger_name{"Nintendough"};
+  static constexpr auto log_file_name{"nintendough.log"};
+  static constexpr auto max_file_size{1048576 * 5};  // 5mb size
+  static constexpr auto max_files{3};
 };
 }  // namespace nintendough::log
 

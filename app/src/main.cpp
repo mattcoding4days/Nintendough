@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <nintendough/error/module.hpp>
 #include <nintendough/log/module.hpp>
 #include <nintendough/utils/module.hpp>
 #include <nintendough/version.hpp>
@@ -8,7 +9,7 @@ using namespace nintendough;
 
 auto main() -> int {
   try {
-    log::Logger::instance().init();
+    log::Logger::instance().init(utils::SystemDefault::logging_dir());
     log::info("Nintendough version: {}", get_version());
     log::info("Test data dir: {}", utils::SystemDefault::config_dir().string());
   } catch (log::LoggerInitFailure const &e) {
