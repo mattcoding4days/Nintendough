@@ -21,3 +21,4 @@ build/
 .vendir/
 .vim/
 docs/doxygen/html
+config/logs
