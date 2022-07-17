@@ -9,7 +9,7 @@ auto LoggerInitFailure::AssertLoggerInitialized(bool initialized,
                                                 error::SourceLocation &&slc)
     -> void {
   if (!initialized) {
-    throw LoggerInitFailure("Loggers were not initialized", std::move(slc));
+    throw LoggerInitFailure("Logger initialization issue", std::move(slc));
   }
 }
 
