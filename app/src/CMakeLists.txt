@@ -14,14 +14,10 @@ set(BINARY_NAME "${PACKAGE_NAME}")
 add_executable(
   ${BINARY_NAME}
   # Add source files
-  "${APP_SOURCE_DIR}/main.cpp"
-  "${APP_SOURCE_DIR}/log/logger.cpp"
-  "${APP_SOURCE_DIR}/log/error.cpp"
-  "${APP_SOURCE_DIR}/error/base_error.cpp"
-  "${APP_SOURCE_DIR}/error/source_location.cpp"
-  "${APP_SOURCE_DIR}/utils/error.cpp"
-  "${APP_SOURCE_DIR}/utils/fs_wrapper.cpp"
-  "${APP_SOURCE_DIR}/utils/system_defaults.cpp")
+  ${MAIN_ROUTINE}
+  ${ERROR_MODULE}
+  ${LOG_MODULE}
+  ${UTILS_MODULE})
 
 target_include_directories(${BINARY_NAME} PUBLIC ${APP_INCLUDE_DIR})
 target_link_libraries(

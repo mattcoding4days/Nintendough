@@ -64,7 +64,15 @@ class SystemDefault {
    *  \return std::filesystem::path
    * */
   [[nodiscard]] static auto home_() noexcept -> std::filesystem::path;
-
+    
+  /**
+   * \brief Hard coded constants to build directory paths and
+   *  read/write files
+   *
+   * \details TestDataDir will point the the config direcory
+   *  at the root level of this project, if tests are enabled
+   *  the macro NINTENDOUGH_TEST_DATA_DIR will be populated
+   * */
   static constexpr auto ProgName{"nintendough"};
   static constexpr auto SysConfigFile{"sys-config.json"};
   static constexpr auto ControllerConfigFile{"controller-config.json"};

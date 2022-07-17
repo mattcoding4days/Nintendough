@@ -35,6 +35,20 @@ if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR OR CMAKE_CURRENT_B
 endif()
 
 #
+# NOTE: Set the main routine
+#
+set(MAIN_ROUTINE "${APP_SOURCE_DIR}/main.cpp")
+
+#
+# NOTE: Bundle modules so they can easily be included
+# all sub_directory CMakeLists.txt has access to them
+#
+set(LOG_MODULE "${APP_SOURCE_DIR}/log/logger.cpp" "${APP_SOURCE_DIR}/log/error.cpp")
+set(UTILS_MODULE "${APP_SOURCE_DIR}/utils/error.cpp" "${APP_SOURCE_DIR}/utils/fs_wrapper.cpp"
+                 "${APP_SOURCE_DIR}/utils/system_defaults.cpp")
+set(ERROR_MODULE "${APP_SOURCE_DIR}/error/base_error.cpp" "${APP_SOURCE_DIR}/error/source_location.cpp")
+
+#
 # NOTE: This is where 3rd party libraries should be installed via the light weight CPM dependancy
 # management system. The CPM wiki is here: https://github.com/cpm-cmake/CPM.cmake/wiki/More-Snippets
 #
