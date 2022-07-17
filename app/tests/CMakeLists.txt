@@ -8,7 +8,7 @@ set(APP_TEST_SOURCES "${APP_TEST_SOURCE_DIR}/hello_test.cpp")
 #
 # NOTE: Declare a custom name for the test executable
 #
-set(PACKAGE_UNIT_TEST_NAME "${PACKAGE_NAME}_tests.bin")
+set(PACKAGE_UNIT_TEST_NAME "${PACKAGE_NAME}_tests")
 
 #
 # NOTE: Add all test sources to the executable, and any other sources
@@ -20,7 +20,12 @@ add_executable(${PACKAGE_UNIT_TEST_NAME} ${APP_TEST_SOURCES})
 # the gtest_main library.
 #
 target_include_directories(${PACKAGE_UNIT_TEST_NAME} PUBLIC ${APP_INCLUDE_DIR})
-target_link_libraries(${PACKAGE_UNIT_TEST_NAME} PRIVATE project_options project_warnings gtest_main)
+target_link_libraries(
+  ${PACKAGE_UNIT_TEST_NAME}
+  PRIVATE project_options
+          project_warnings
+          gtest_main
+          stdc++fs)
 
 #
 # NOTE: Signal google test to discover all tests

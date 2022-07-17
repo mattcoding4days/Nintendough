@@ -20,6 +20,7 @@ add_executable(
   "${APP_SOURCE_DIR}/error/base_error.cpp"
   "${APP_SOURCE_DIR}/error/source_location.cpp"
   "${APP_SOURCE_DIR}/utils/error.cpp"
+  "${APP_SOURCE_DIR}/utils/fs_wrapper.cpp"
   "${APP_SOURCE_DIR}/utils/system_defaults.cpp")
 
 target_include_directories(${BINARY_NAME} PUBLIC ${APP_INCLUDE_DIR})
@@ -28,4 +29,5 @@ target_link_libraries(
   PRIVATE project_options
           project_warnings
           ${STARTER_CORE_LIB}
-          spdlog::spdlog)
+          spdlog::spdlog
+          stdc++fs)
