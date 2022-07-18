@@ -6,7 +6,7 @@
 
 namespace nintendough::log {
 
-auto Logger::instance() -> Logger& {
+auto Logger::instance() noexcept -> Logger& {
   static Logger instance;
   return instance;
 }

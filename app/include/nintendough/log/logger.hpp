@@ -38,7 +38,7 @@ class Logger {
   /**
    * \brief only move semantics are allowed
    * */
-  Logger(Logger &&) = default;
+  Logger(Logger &&) noexcept = default;
   Logger &operator=(Logger &&) noexcept = default;
 
   /**
@@ -46,7 +46,7 @@ class Logger {
    *
    * \returns reference to Logger
    * */
-  static auto instance() -> Logger &;
+  static auto instance() noexcept -> Logger &;
 
   /**
    * \brief Initialize spdlog

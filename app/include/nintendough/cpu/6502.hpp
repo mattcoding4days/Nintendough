@@ -2,10 +2,10 @@
 #define NINTENDOUGH_CPU_6502_HPP
 
 #include <nintendough/common.hpp>
+#include <nintendough/cpu/bus.hpp>
 #include <nintendough/cpu/types.hpp>
 
 namespace nintendough::cpu {
-class Bus;
 
 /**
  * \brief 6502 emulation class
