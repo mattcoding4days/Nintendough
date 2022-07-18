@@ -3,8 +3,11 @@ include(GoogleTest)
 #
 # NOTE: Add all test source files
 #
-set(APP_TEST_SOURCES "${APP_TEST_SOURCE_DIR}/utils_module_test.cpp" "${APP_TEST_SOURCE_DIR}/log_module_test.cpp"
-                     "${APP_TEST_SOURCE_DIR}/error_module_test.cpp")
+set(APP_TEST_SOURCES
+    "${APP_TEST_SOURCE_DIR}/utils_module_test.cpp"
+    "${APP_TEST_SOURCE_DIR}/log_module_test.cpp"
+    "${APP_TEST_SOURCE_DIR}/error_module_test.cpp"
+    "${APP_TEST_SOURCE_DIR}/cpu_module_test.cpp")
 
 #
 # NOTE: Declare a custom name for the test executable
@@ -19,7 +22,8 @@ add_executable(
   ${APP_TEST_SOURCES}
   ${ERROR_MODULE}
   ${UTILS_MODULE}
-  ${LOG_MODULE})
+  ${LOG_MODULE}
+  ${CPU_MODULE})
 
 #
 # NOTE: Link any libraries we need to the test executable. The most notable being
