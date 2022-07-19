@@ -76,12 +76,12 @@ class Cpu6502 {
   //! program memory, the lower byte of the program counter (PCL)
   //! is placed on the low-order bits of the address bus and
   //! the high-order 8 bits. The counter is incremented each
-  //! time an instruction or data is fetched from program memory
+  //! time an instruction or data is fetched from program memory.
   u16 program_counter{0x0000};
 
-  // The 8-bit processor status register contains seven status
-  // flags. Some of the flags are controlled by the program, others
-  // may be controlled both by the program and the CPU.
+  //! The 8-bit processor status register contains seven status
+  //! flags. Some of the flags are controlled by the program, others
+  //! may be controlled both by the program and the CPU.
   u8 statis_register{0x00};
 
   /**
