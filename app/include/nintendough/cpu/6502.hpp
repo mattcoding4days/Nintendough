@@ -3,6 +3,7 @@
 
 #include <nintendough/common.hpp>
 #include <nintendough/cpu/bus.hpp>
+#include <nintendough/cpu/instruction.hpp>
 #include <nintendough/cpu/types.hpp>
 
 namespace nintendough::cpu {
@@ -111,14 +112,6 @@ class Cpu6502 {
   auto clock() noexcept -> void;
 
   /**
-   * \brief Instruction completion indicator
-   *
-   * \details This will be used for step-by-step
-   *  debugging
-   * */
-  [[nodiscard]] auto complete() noexcept -> bool;
-
-  /**
    * \brief since the status register stores 8 individual
    *  flags, we can enumurate them for nice access and manipulation.
    *  Each bit can have a different meaning depending on the type
@@ -130,14 +123,14 @@ class Cpu6502 {
    * \details
    *  C = Carry bit
    *  Z = Zero
-   *  I = Disable I
+   *  I = Disable Interrupts
    *  D = Decimal mode (Nes does not use this)
    *  B = Break
    *  U = Unused
    *  V = Overflow
    *  N = Negative
    * */
-  enum StatusRegisterFlgs {
+  enum StatusRegisterFlags {
     C = (StatusRegisterMask << static_cast<u8>(0)),
     Z = (StatusRegisterMask << static_cast<u8>(1)),
     I = (StatusRegisterMask << static_cast<u8>(2)),
@@ -149,10 +142,142 @@ class Cpu6502 {
   };
 
  private:
+  using BusConn = std::unique_ptr<Bus>;
+  using InstructionTable = std::vector<Instruction>;
+
+  /**
+   * \brief Getter/Setter functions to access the status register
+   * */
+
+  [[nodiscard]] auto get_flag_(StatusRegisterFlags flag) noexcept -> u8;
+  auto set_flag_(StatusRegisterFlags flag, bool additional) noexcept -> void;
+
+  /**
+   * \brief Assistive variables to facilitate emulation
+   *
+   * \details
+   * fetched      = Represents the working input value to the ALU
+   * opcode       = The instruction byte
+   * cycles       = Counts how many cycles the instruction has remaining
+   * temp         = A convenience variable used everywhere
+   * addr_abs     = All used memory addresses end up in here
+   * addr_rel     = Represents absolute address following a branch
+   * clock_count  = A global accumulation of the number of clocks
+   * */
+  u8 m_fetched{0x00};
+  u8 m_opcode{0x00};
+  u8 m_cycles{0};
+  u16 m_temp{0x0000};
+  u16 m_addr_abs{0x000};
+  u16 m_addr_rel{0x0000};
+  u32 m_clock_count{0};
+
   /**
    * \brief connection to the bus
    * */
-  std::unique_ptr<Bus> mBus;
+  BusConn m_bus{};
+
+  /**
+   * \brief read data from the bus
+   * */
+  [[nodiscard]] auto read_(u16 data) noexcept -> u8;
+
+  /**
+   * \brief write data to the bus
+   * */
+  auto write_(u16 data, u16 data2) noexcept -> void;
+
+  /**
+   * \brief fetch data from two sources
+   *
+   * \details the location of data can come from two different sources,
+   *  a memory address, or its immediately available as part of the instruction.
+   *  This function decides depdending on the addressing mode of the instruction
+   *
+   *  \returns the data from an instruction itself or memory
+   * */
+  [[nodiscard]] auto fetch_() noexcept -> u8;
+
+  /**
+   * \brief intruction look up table
+   * */
+  InstructionTable m_look_up{};
+
+  /**
+   * \brief Addressing modes
+   * */
+  auto imp_() noexcept -> u8;
+  auto imm_() noexcept -> u8;
+  auto zp0_() noexcept -> u8;
+  auto zpx_() noexcept -> u8;
+  auto zpy_() noexcept -> u8;
+  auto rel_() noexcept -> u8;
+  auto abs_() noexcept -> u8;
+  auto abx_() noexcept -> u8;
+  auto aby_() noexcept -> u8;
+  auto ind_() noexcept -> u8;
+  auto izx_() noexcept -> u8;
+  auto izy_() noexcept -> u8;
+
+  /**
+   * \brief Opcodes
+   * */
+  auto adc_() noexcept -> u8;
+  auto and_() noexcept -> u8;
+  auto asl_() noexcept -> u8;
+  auto bcc_() noexcept -> u8;
+  auto bcs_() noexcept -> u8;
+  auto beq_() noexcept -> u8;
+  auto bit_() noexcept -> u8;
+  auto bmi_() noexcept -> u8;
+  auto bne_() noexcept -> u8;
+  auto bpl_() noexcept -> u8;
+  auto brk_() noexcept -> u8;
+  auto bvc_() noexcept -> u8;
+  auto bvs_() noexcept -> u8;
+  auto clc_() noexcept -> u8;
+  auto cld_() noexcept -> u8;
+  auto cli_() noexcept -> u8;
+  auto clv_() noexcept -> u8;
+  auto cmp_() noexcept -> u8;
+  auto cpx_() noexcept -> u8;
+  auto cpy_() noexcept -> u8;
+  auto dec_() noexcept -> u8;
+  auto dex_() noexcept -> u8;
+  auto dey_() noexcept -> u8;
+  auto eor_() noexcept -> u8;
+  auto inc_() noexcept -> u8;
+  auto inx_() noexcept -> u8;
+  auto iny_() noexcept -> u8;
+  auto jmp_() noexcept -> u8;
+  auto jsr_() noexcept -> u8;
+  auto lda_() noexcept -> u8;
+  auto ldx_() noexcept -> u8;
+  auto ldy_() noexcept -> u8;
+  auto lsr_() noexcept -> u8;
+  auto nop_() noexcept -> u8;
+  auto ora_() noexcept -> u8;
+  auto pha_() noexcept -> u8;
+  auto php_() noexcept -> u8;
+  auto pla_() noexcept -> u8;
+  auto plp_() noexcept -> u8;
+  auto rol_() noexcept -> u8;
+  auto ror_() noexcept -> u8;
+  auto rti_() noexcept -> u8;
+  auto rts_() noexcept -> u8;
+  auto sbc_() noexcept -> u8;
+  auto sec_() noexcept -> u8;
+  auto sed_() noexcept -> u8;
+  auto sei_() noexcept -> u8;
+  auto sta_() noexcept -> u8;
+  auto stx_() noexcept -> u8;
+  auto sty_() noexcept -> u8;
+  auto tax_() noexcept -> u8;
+  auto tay_() noexcept -> u8;
+  auto tsx_() noexcept -> u8;
+  auto txa_() noexcept -> u8;
+  auto txs_() noexcept -> u8;
+  auto tya_() noexcept -> u8;
 };
 
 };  // namespace nintendough::cpu

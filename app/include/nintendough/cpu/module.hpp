@@ -4,6 +4,7 @@
 #include <nintendough/cpu/6502.hpp>
 #include <nintendough/cpu/bus.hpp>
 #include <nintendough/cpu/error.hpp>
+#include <nintendough/cpu/instruction.hpp>
 #include <nintendough/cpu/types.hpp>
 
 #endif
