@@ -13,6 +13,4 @@ auto Cpu6502::clock() noexcept -> void {}
 
 auto Cpu6502::complete() noexcept -> bool {}
 
-
-
 };  // namespace nintendough::cpu
