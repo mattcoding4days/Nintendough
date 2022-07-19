@@ -278,6 +278,7 @@ class Cpu6502 {
   auto txa_() noexcept -> u8;
   auto txs_() noexcept -> u8;
   auto tya_() noexcept -> u8;
+  auto xxx_() noexcept -> u8;
 };
 
 };  // namespace nintendough::cpu

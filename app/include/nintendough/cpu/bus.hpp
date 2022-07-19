@@ -10,8 +10,6 @@ class Bus {
   Bus(Bus &&) = default;
   Bus &operator=(Bus const &) = default;
   Bus &operator=(Bus &&) = default;
-
-
 };
 };  // namespace nintendough::cpu
 
