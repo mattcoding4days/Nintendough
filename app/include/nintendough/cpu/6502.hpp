@@ -143,7 +143,7 @@ class Cpu6502 {
 
  private:
   using BusConn = std::unique_ptr<Bus>;
-  using InstructionTable = std::vector<Instruction>;
+  using InstructionSet = std::vector<Instruction>;
 
   /**
    * \brief Getter/Setter functions to access the status register
@@ -199,9 +199,9 @@ class Cpu6502 {
   [[nodiscard]] auto fetch_() noexcept -> u8;
 
   /**
-   * \brief intruction look up table
+   * \brief intruction look
    * */
-  InstructionTable m_look_up{};
+  InstructionSet m_lookup{};
 
   /**
    * \brief Addressing modes
