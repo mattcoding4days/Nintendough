@@ -20,13 +20,14 @@ namespace nintendough::component {
  * */
 class Cpu6502 {
  public:
+  using BusConn = std::unique_ptr<Bus>;
   /**
    * /brief Since there are many versions of the 6502,
    *  which can have different bus implementations,
    *  we will rely on depency injection, so any arbitrary
    *  bus can be passed in.
    * */
-  explicit Cpu6502(std::unique_ptr<Bus> &&bus);
+  explicit Cpu6502(BusConn &&bus);
   virtual ~Cpu6502() = default;
   Cpu6502(Cpu6502 const &) = delete;
   Cpu6502 &operator=(Cpu6502 const &) = delete;
@@ -142,7 +143,6 @@ class Cpu6502 {
   };
 
  private:
-  using BusConn = std::unique_ptr<Bus>;
   using InstructionSet = std::vector<Instruction>;
 
   /**
