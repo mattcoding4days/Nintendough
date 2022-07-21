@@ -43,11 +43,11 @@ set(LOG_MODULE "${APP_SOURCE_DIR}/log/logger.cpp" "${APP_SOURCE_DIR}/log/error.c
 set(UTILS_MODULE "${APP_SOURCE_DIR}/utils/error.cpp" "${APP_SOURCE_DIR}/utils/fs_wrapper.cpp"
                  "${APP_SOURCE_DIR}/utils/system_defaults.cpp")
 set(ERROR_MODULE "${APP_SOURCE_DIR}/error/base_error.cpp" "${APP_SOURCE_DIR}/error/source_location.cpp")
-set(CPU_MODULE
-    "${APP_SOURCE_DIR}/cpu/6502.cpp"
-    "${APP_SOURCE_DIR}/cpu/bus.cpp"
-    "${APP_SOURCE_DIR}/cpu/error.cpp"
-    "${APP_SOURCE_DIR}/cpu/instruction.cpp")
+set(COMPONENT_MODULE
+    "${APP_SOURCE_DIR}/component/cpu.cpp"
+    "${APP_SOURCE_DIR}/component/bus.cpp"
+    "${APP_SOURCE_DIR}/component/error.cpp"
+    "${APP_SOURCE_DIR}/component/instruction.cpp")
 #
 # NOTE: This is where 3rd party libraries should be installed via the light weight CPM dependancy
 # management system. The CPM wiki is here: https://github.com/cpm-cmake/CPM.cmake/wiki/More-Snippets

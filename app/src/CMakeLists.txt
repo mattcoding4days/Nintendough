@@ -23,7 +23,7 @@ add_executable(
   ${ERROR_MODULE}
   ${LOG_MODULE}
   ${UTILS_MODULE}
-  ${CPU_MODULE})
+  ${COMPONENT_MODULE})
 
 target_include_directories(${BINARY_NAME} PUBLIC ${APP_INCLUDE_DIR})
 target_link_libraries(

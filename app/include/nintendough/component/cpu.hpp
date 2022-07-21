@@ -1,12 +1,12 @@
-#ifndef NINTENDOUGH_CPU_6502_HPP
-#define NINTENDOUGH_CPU_6502_HPP
+#ifndef NINTENDOUGH_COMPONENT_CPU_HPP
+#define NINTENDOUGH_COMPONENT_CPU_HPP
 
 #include <nintendough/common.hpp>
-#include <nintendough/cpu/bus.hpp>
-#include <nintendough/cpu/instruction.hpp>
-#include <nintendough/cpu/types.hpp>
+#include <nintendough/component/bus.hpp>
+#include <nintendough/component/instruction.hpp>
+#include <nintendough/types.hpp>
 
-namespace nintendough::cpu {
+namespace nintendough::component {
 
 /**
  * \brief 6502 emulation class
@@ -130,7 +130,7 @@ class Cpu6502 {
    *  V = Overflow
    *  N = Negative
    * */
-  enum StatusRegisterFlags {
+  enum class StatusRegisterFlags : u8 {
     C = (StatusRegisterMask << static_cast<u8>(0)),
     Z = (StatusRegisterMask << static_cast<u8>(1)),
     I = (StatusRegisterMask << static_cast<u8>(2)),
@@ -281,6 +281,6 @@ class Cpu6502 {
   auto xxx_() noexcept -> u8;
 };
 
-};  // namespace nintendough::cpu
+};  // namespace nintendough::component
 
 #endif

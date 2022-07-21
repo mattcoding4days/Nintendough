@@ -1,9 +1,9 @@
-#ifndef NINTENDOUGH_CPU_INSTRUCTION_HPP
-#define NINTENDOUGH_CPU_INSTRUCTION_HPP
+#ifndef NINTENDOUGH_COMPONENT_INSTRUCTION_HPP
+#define NINTENDOUGH_COMPONENT_INSTRUCTION_HPP
 
-#include <nintendough/cpu/types.hpp>
+#include <nintendough/types.hpp>
 
-namespace nintendough::cpu {
+namespace nintendough::component {
 /**
  * \brief A structure holding all relevent 6502 Instruction information
  *
@@ -29,6 +29,6 @@ struct Instruction {
   u8 (*address_mode)() = nullptr;
   u8 cycle_count{};
 };
-};  // namespace nintendough::cpu
+};  // namespace nintendough::component
 
 #endif

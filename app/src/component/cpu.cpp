@@ -1,6 +1,6 @@
-#include <nintendough/cpu/6502.hpp>
+#include <nintendough/component/cpu.hpp>
 
-namespace nintendough::cpu {
+namespace nintendough::component {
 Cpu6502::Cpu6502(std::unique_ptr<Bus> &&bus) : m_bus(std::move(bus)) {}
 
 auto Cpu6502::reset() noexcept -> void {}
@@ -90,4 +90,4 @@ auto Cpu6502::txa_() noexcept -> u8 {}
 auto Cpu6502::txs_() noexcept -> u8 {}
 auto Cpu6502::tya_() noexcept -> u8 {}
 auto Cpu6502::xxx_() noexcept -> u8 {}
-};  // namespace nintendough::cpu
+};  // namespace nintendough::component

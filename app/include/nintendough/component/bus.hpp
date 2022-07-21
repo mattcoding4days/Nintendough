@@ -1,7 +1,7 @@
-#ifndef NINTENDOUGH_CPU_BUS_HPP
-#define NINTENDOUGH_CPU_BUS_HPP
+#ifndef NINTENDOUGH_COMPONENT_BUS_HPP
+#define NINTENDOUGH_COMPONENT_BUS_HPP
 
-namespace nintendough::cpu {
+namespace nintendough::component {
 class Bus {
  public:
   Bus() = default;
@@ -11,6 +11,6 @@ class Bus {
   Bus &operator=(Bus const &) = default;
   Bus &operator=(Bus &&) = default;
 };
-};  // namespace nintendough::cpu
+};  // namespace nintendough::component
 
 #endif
