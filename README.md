@@ -9,7 +9,7 @@
 
 1. Built using the [Nesdev Wiki](https://www.nesdev.org/wiki/Nesdev_Wiki) as reference
 
-2. Also refer to the [Intel 6502 Data sheet](http://archive.6502.org/datasheets/rockwell_r650x_r651x.pdf) courtesy of `archive.6502.org`
+2. Also refer to the [Mot 6502 Data sheet](http://archive.6502.org/datasheets/rockwell_r650x_r651x.pdf) courtesy of `archive.6502.org`
   - This contains very valuable information such as...
     * Alphabetic instruction set with Mnemonics and their Functions.
     * Detailed descriptions of all addressing modes used, incase you havn't memorized
