@@ -46,7 +46,7 @@ class Logger {
    *
    * \returns reference to Logger
    * */
-  static auto instance() noexcept -> Logger &;
+  [[nodiscard]] static auto instance() noexcept -> Logger &;
 
   /**
    * \brief Initialize spdlog
